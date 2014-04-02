@@ -63,7 +63,7 @@ case "$1" in
     if [[ "$id" != "" ]]; then
       echo "Neo4j container already running with ID: ${id}"
     else
-      docker run -p 7474:7474 -d -privileged -v "$DOKKU_ROOT/.neo4j/data":/var/lib/neo4j/data "$IMAGE" /var/lib/neo4j/bin/neo4j start
+      docker run -p 7474:7474 -d --privileged -v "$DOKKU_ROOT/.neo4j/data":/var/lib/neo4j/data "$IMAGE"
     fi
     ;;
   neo4j:stop)
